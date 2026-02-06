@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Last Chance</title>
+  <style>
+    body{
+      background:#e6b3b3;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial;
+    }
+    .box{
+      text-align:center;
+      background:#f7cfcf;
+      padding:30px;
+      border-radius:20px;
+    }
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:20px;
+      margin:5px;
+      font-size:16px;
+    }
+    #no{
+      position:absolute;
+    }
+    .box {
+  animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <img src="https://i.pinimg.com/originals/c5/95/8d/c5958d94d021ef645bd81bc05cdfe36a.gif" width="180"><br>
+  <h2>Ab toh maan jao😭</h2>
+  <h4>last chance hai😵‍💫</h4>
+
+  <button onclick="handleChoice('Yes')">YES</button>
+  <button id="no">NO</button>
+</div>
+</html>
+<script>
+  const noBtn = document.getElementById("no");
+
+  noBtn.addEventListener("mouseenter", () => {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.transition = "left 0.25s ease, top 0.25s ease";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+</script>
+<script>
+function handleChoice(choice) {
+
+  // 🔸 Response save / send
+  fetch("https://script.google.com/macros/s/AKfycbweC1-bd08EFTISoy_CaH2V5ZA0ovjlEH-RH70gwCutoPu-1--K7mfgTrnQ9ZrouhOp/exec", {
+    method: "POST",
+    body: new URLSearchParams({
+    "entry.522022063=": choice
+    })
+  });
+
+  // 🔸 Ab navigation
+  if (choice === "Yes") {
+    window.location.href = "yes.html";
+  
+  }
+}
+</script>
+
+</body>

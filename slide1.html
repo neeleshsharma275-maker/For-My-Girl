@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ask her out</title>
+  <style>
+    body{
+      background:#e6b3b3;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial;
+    }
+    .box{
+      text-align:center;
+      background:#f7cfcf;
+      padding:30px;
+      border-radius:20px;
+    }
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:20px;
+      margin:5px;
+      font-size:16px;
+    }
+    .box {
+  animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <img src="https://i.pinimg.com/originals/8b/0a/9a/8b0a9a1393af871b28ce53b47b61919d.gif" width="180"><br>
+  <h2>Please think again!🥺</h2>
+  <h4>itni jaldi matt bolo na👉👈</h4>
+
+  <button onclick="handleChoice('Yes')">YES</button>
+  <button onclick="handleChoice('No')">NO</button>
+</div>
+<script>
+function handleChoice(choice) {
+
+  // 🔸 Response save / send
+  fetch("https://script.google.com/macros/s/AKfycbweC1-bd08EFTISoy_CaH2V5ZA0ovjlEH-RH70gwCutoPu-1--K7mfgTrnQ9ZrouhOp/exec", {
+    method: "POST",
+    body: new URLSearchParams({
+    "entry.522022063=": choice
+    })
+  });
+
+  // 🔸 Ab navigation
+  if (choice === "Yes") {
+    window.location.href = "yes.html";
+  } else {
+    window.location.href = "slide2.html";
+  }
+}
+</script>
+
+</body>
+</html>

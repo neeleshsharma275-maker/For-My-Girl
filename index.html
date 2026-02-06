@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ask Her Out</title>
+  <style>
+    body {
+      background: #e6b3b3;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+    }
+    .box {
+      text-align: center;
+      background: #f7cfcf;
+      padding: 30px;
+      border-radius: 20px;
+    }
+    button {
+        
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .box {
+  animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <img src="https://i.pinimg.com/originals/d8/b9/71/d8b97168488fdb3eb9533da493c8fa95.gif" width="180"><br>
+  <h2>  Will you be my velentine🤗</h2>
+  <h4>  now is all yours</h4>
+
+  <button onclick="handleChoice('YES')">YES</button>
+  <button onclick="handleChoice('NO')">NO</button>
+</div>
+
+<script>
+function handleChoice(choice) {
+
+  // 🔸 Response save / send
+  fetch("https://script.google.com/macros/s/AKfycbweC1-bd08EFTISoy_CaH2V5ZA0ovjlEH-RH70gwCutoPu-1--K7mfgTrnQ9ZrouhOp/exec",{
+    method: "POST",
+    body: new URLSearchParams({
+      "entry.522022063=": choice
+      })
+    });
+  
+if (choice === "YES"){
+    location.href = "yes.html";
+  }
+   else {
+    location.href = "slide1.html";
+  }
+
+} 
+</script>
+
+</body>
+</html>
